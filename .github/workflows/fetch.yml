@@ -29,6 +29,9 @@ jobs:
           ISSUER_ID: ${{ secrets.ISSUER_ID }}
           BUNDLE_ID: ${{ secrets.BUNDLE_ID }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_FIRSTHANJA: ${{ secrets.SLACK_WEBHOOK_FIRSTHANJA }}
+          SLACK_WEBHOOK_FIRSTWEATHER: ${{ secrets.SLACK_WEBHOOK_FIRSTWEATHER }}
+          SLACK_WEBHOOK_MONEYKEYBOARD: ${{ secrets.SLACK_WEBHOOK_MONEYKEYBOARD }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
           LANGUAGE: "ko"
