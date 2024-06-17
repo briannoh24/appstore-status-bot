@@ -33,6 +33,7 @@ const checkVersion = async (app) => {
   var appInfoKey = "appInfo-" + app.appID;
   var submissionStartKey = "submissionStart" + app.appID;
 
+  console.log(app.appID);
   const db = dirty("store.db");
   db.on("load", async function () {
     var lastAppInfo = db.get(appInfoKey);
