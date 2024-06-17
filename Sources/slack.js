@@ -4,6 +4,9 @@ const { IncomingWebhook } = require("@slack/webhook");
 const { I18n } = require("i18n");
 
 const webhookURL = process.env.SLACK_WEBHOOK;
+const webhookURLFirstWeather = process.env.SLACK_WEBHOOK_FIRSTWEATHER;
+const webhookURLMoneyKeyboard = process.env.SLACK_WEBHOOK_MONEYKEYBOARD;
+const webhookURLHanja = process.env.SLACK_WEBHOOK_FIRSTHANJA;
 const language = process.env.LANGUAGE;
 const i18n = new I18n();
 
@@ -25,15 +28,49 @@ function post(appInfo, submissionStartDate) {
     as_user: "true",
   };
 
-  hook(message, attachment);
+  const abc = appInfo.
+
+  hook(message, attachment, appInfo.appID);
 }
 
-async function hook(message, attachment) {
-  const webhook = new IncomingWebhook(webhookURL, {});
-  await webhook.send({
-    text: message,
-    attachments: [attachment],
-  });
+async function hook(message, attachment, appid) {
+
+    switch (appid) {
+        // 디자인키보드
+        case 1460767601:
+            const dkwebhook = new IncomingWebhook(webhookURL, {});
+            await dkwebhook.send({
+              text: message,
+              attachments: [attachment],
+            });
+        
+        // 첫화면날씨
+        case 1526791980:
+            const fwwebhook = new IncomingWebhook(webhookURLFirstWeather, {});
+            await fwwebhook.send({
+              text: message,
+              attachments: [attachment],
+            });
+
+        // 머니키보드
+        case 1662758196:
+            const mkwebhook = new IncomingWebhook(webhookURLMoneyKeyboard, {});
+            await mkwebhook.send({
+              text: message,
+              attachments: [attachment],
+            });
+
+        // 첫화면 사자성어
+        case 1611248878:
+            const fhwebhook = new IncomingWebhook(webhookURLHanja, {});
+            await fhwebhook.send({
+              text: message,
+              attachments: [attachment],
+            });
+
+        
+        default: break;
+    }
 }
 
 function slackAttachment(appInfo, submissionStartDate) {
