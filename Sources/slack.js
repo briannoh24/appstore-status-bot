@@ -28,9 +28,8 @@ function post(appInfo, submissionStartDate) {
     as_user: "true",
   };
 
-  const abc = appInfo.
-
-  hook(message, attachment, appInfo.appID);
+  const appinfoID = appInfo.appID
+  hook(message, attachment, appinfoID);
 }
 
 async function hook(message, attachment, appid) {
