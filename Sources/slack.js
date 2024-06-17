@@ -29,6 +29,7 @@ function post(appInfo, submissionStartDate) {
   };
 
   const appinfoID = appInfo.appID
+  console.log(appinfoID)
   hook(message, attachment, appinfoID);
 }
 
@@ -36,7 +37,7 @@ async function hook(message, attachment, appid) {
 console.log(appid)
     switch (appid) {
         // 디자인키보드
-        case 1460767601:
+        case '1460767601':
             const dkwebhook = new IncomingWebhook(webhookURL, {});
             await dkwebhook.send({
               text: message,
@@ -44,7 +45,7 @@ console.log(appid)
             });
         
         // 첫화면날씨
-        case 1526791980:
+        case '1526791980':
             const fwwebhook = new IncomingWebhook(webhookURLFirstWeather, {});
             await fwwebhook.send({
               text: message,
@@ -52,7 +53,7 @@ console.log(appid)
             });
 
         // 머니키보드
-        case 1662758196:
+        case '1662758196':
             const mkwebhook = new IncomingWebhook(webhookURLMoneyKeyboard, {});
             await mkwebhook.send({
               text: message,
@@ -60,7 +61,7 @@ console.log(appid)
             });
 
         // 첫화면 사자성어
-        case 1611248878:
+        case '1611248878':
             const fhwebhook = new IncomingWebhook(webhookURLHanja, {});
             await fhwebhook.send({
               text: message,
