@@ -33,7 +33,7 @@ function post(appInfo, submissionStartDate) {
 }
 
 async function hook(message, attachment, appid) {
-
+console.log(appid)
     switch (appid) {
         // 디자인키보드
         case 1460767601:
