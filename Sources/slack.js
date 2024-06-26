@@ -44,6 +44,7 @@ async function hook(message, attachment, appid) {
               text: message,
               attachments: [attachment],
             });
+        break;
         
         // 첫화면날씨
         case '1526791980':
@@ -52,7 +53,8 @@ async function hook(message, attachment, appid) {
               text: message,
               attachments: [attachment],
             });
-
+        break;
+        
         // 머니키보드
         case '1662758196':
             console.log(webhookMoneyKeyboardURL)
@@ -61,7 +63,8 @@ async function hook(message, attachment, appid) {
               text: message,
               attachments: [attachment],
             });
-
+        break;
+        
         // 첫화면 사자성어
         case '1611248878':
             const fhwebhook = new IncomingWebhook(webhookHanjaURL, {});
@@ -69,9 +72,9 @@ async function hook(message, attachment, appid) {
               text: message,
               attachments: [attachment],
             });
-
-        
-        default: break;
+        break;
+      
+      default: break;
     }
 }
 
