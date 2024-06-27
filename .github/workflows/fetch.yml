@@ -3,7 +3,7 @@ name: Fetch Appstore Info
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0/360 * * * *"
+    - cron: "0/60 * * * *"
 
 jobs:
   build:
