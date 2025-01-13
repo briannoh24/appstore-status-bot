@@ -51,7 +51,7 @@ async function hook(message, attachment, appid) {
         
         // 첫화면날씨
         case '1526791980':
-         const dkwebhook = new IncomingWebhook(webhookTest, {});
+         const fwwebhook = new IncomingWebhook(webhookTest, {});
             // const fwwebhook = new IncomingWebhook(webhookFirstWeatherURL, {});
             await fwwebhook.send({
               text: message,
@@ -62,7 +62,7 @@ async function hook(message, attachment, appid) {
         // 머니키보드
         case '1662758196':
             console.log(webhookMoneyKeyboardURL)
-         const dkwebhook = new IncomingWebhook(webhookTest, {});
+         const mkwebhook = new IncomingWebhook(webhookTest, {});
             // const mkwebhook = new IncomingWebhook(webhookMoneyKeyboardURL, {});
             await mkwebhook.send({
               text: message,
@@ -72,7 +72,7 @@ async function hook(message, attachment, appid) {
         
         // 첫화면 사자성어
         case '1611248878':
-         const dkwebhook = new IncomingWebhook(webhookTest, {});
+         const fhwebhook = new IncomingWebhook(webhookTest, {});
             // const fhwebhook = new IncomingWebhook(webhookHanjaURL, {});
             await fhwebhook.send({
               text: message,
