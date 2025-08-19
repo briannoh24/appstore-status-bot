@@ -49,8 +49,7 @@ async function hook(message, attachment, appid) {
         
         // 첫화면날씨
         case '1526791980':
-       //  const fwwebhook = new IncomingWebhook(webhookFirstWeatherURL, {});
-            const fwwebhook = new IncomingWebhook(webhookTest, {});
+        const fwwebhook = new IncomingWebhook(webhookFirstWeatherURL, {});
             await fwwebhook.send({
               text: message,
               attachments: [attachment],
