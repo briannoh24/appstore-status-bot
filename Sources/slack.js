@@ -8,6 +8,7 @@ const webhookFirstWeatherURL = process.env.SLACK_WEBHOOK_FIRSTWEATHER;
 const webhookMoneyKeyboardURL = process.env.SLACK_WEBHOOK_MONEYKEYBOARD;
 const webhookHanjaURL = process.env.SLACK_WEBHOOK_FIRSTHANJA;
 const webhookTest = process.env.SLACK_TEST_WEBHOOK;
+const webhookTalkingTalkingTranslator = process.env.SLACK_WEBHOOK_TALKINGTRANSLATOR;
 const language = process.env.LANGUAGE;
 const i18n = new I18n();
 
@@ -69,6 +70,15 @@ async function hook(message, attachment, appid) {
         case '1611248878':
             const fhwebhook = new IncomingWebhook(webhookHanjaURL, {});
             await fhwebhook.send({
+              text: message,
+              attachments: [attachment],
+            });
+        break;
+
+        // 말하는 번역기
+      case '6745153785':
+            const ttwebhook = new IncomingWebhook(webhookTalkingTalkingTranslator, {});
+            await ttwebhook.send({
               text: message,
               attachments: [attachment],
             });
