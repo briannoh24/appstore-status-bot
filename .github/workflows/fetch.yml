@@ -9,20 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: "20.x"
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
-      - uses: ruby/setup-ruby@v1
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2.2"
-      - run: gem install bundler:2.1.4
-      - run: bundle install
-      - run: npm install
-      - run: gem install fastlane -v '2.219.0'
-      - run: node Sources/check_status.js
+          bundler-cache: true
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Run App Status Script
+        run: node Sources/check_status.js
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           KEY_ID: ${{ secrets.KEY_ID }}

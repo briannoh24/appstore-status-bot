@@ -12,7 +12,7 @@ const main = async () => {
   await getGist();
 
   exec(
-    "ruby Sources/fetch_app_status.rb",
+    "bundle exec ruby Sources/fetch_app_status.rb",
     { env: env },
     function (err, stdout, stderr) {
       if (stdout) {
